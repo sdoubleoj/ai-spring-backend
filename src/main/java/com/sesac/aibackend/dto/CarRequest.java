@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 public record CarRequest(
         @NotBlank String name,
         @NotBlank String brand,
-        @Min(0) int price,
+        @Min(0) Long price,
         @NotBlank String color
 ) {
     public Car toEntity() {
