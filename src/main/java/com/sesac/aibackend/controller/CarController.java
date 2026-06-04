@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/legacy/cars")
+@RequestMapping("/cars")
 public class CarController {
 
     private final Map<Long, Car> storage = new ConcurrentHashMap<>();
@@ -40,7 +40,7 @@ public class CarController {
         long id = sequence.getAndIncrement();
         Car saved = Car.builder().id(id).name(req.name()).brand(req.brand()).price((long) req.price()).color(req.color()).build();
         storage.put(id, saved);
-        return ResponseEntity.created(URI.create("/legacy/cars/" + id)).body(CarResponse.from(saved));
+        return ResponseEntity.created(URI.create("/cars/" + id)).body(CarResponse.from(saved));
     }
 
     @PutMapping("/{id}")
