@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthController {
 
-    @GetMapping("/health") // /health로 GET 요청이 오면 사용
+    @GetMapping("/health2") // /health로 GET 요청이 오면 사용
     public Map<String, String> health() {
         return Map.of("status", "ok");
     }
