@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "emps")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -38,7 +38,7 @@ public class Emp {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
-            name = "department_id",
+            name = "dept_id",
             nullable = false
     )
     private Dept dept;
