@@ -3,6 +3,9 @@ package com.sesac.aibackend.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "departments")
 @Getter
@@ -36,4 +39,10 @@ public class Department {
     )
     private Role role;
 
+    @OneToMany(
+            mappedBy = "department",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Employee> chatLogs = new ArrayList<>();
 }
