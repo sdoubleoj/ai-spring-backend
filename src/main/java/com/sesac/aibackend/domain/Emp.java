@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-public class Employee {
+public class Emp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Employee {
             nullable = false,
             length = 50
     )
-    private String name;
+    private String empname;
 
     // 직급
     @Column(
@@ -41,5 +41,5 @@ public class Employee {
             name = "department_id",
             nullable = false
     )
-    private Department department;
+    private Dept dept;
 }
