@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "departments")
+@Table(name = "depts")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -25,6 +25,11 @@ public class Dept {
     )
     private String deptname;
 
+    // 부서 계층
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id") // 최상위 부서는 null
+    private Dept parent;
+
     // 부서 내 직원 수
     @Column(
             name = "emp_count",
@@ -32,17 +37,9 @@ public class Dept {
     )
     private int empCount = 0;
 
-    @Enumerated(EnumType.STRING)
-    @Column(
-            nullable = false,
-            length = 20
-    )
-    private Role role;
-
+    // 직원 목록
     @OneToMany(
-            mappedBy = "dept",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            mappedBy = "dept"
     )
-    private List<Emp> chatLogs = new ArrayList<>();
+    private List<Emp> emps = new ArrayList<>();
 }
