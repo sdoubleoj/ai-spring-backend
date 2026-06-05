@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-public class Department {
+public class Dept {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +23,14 @@ public class Department {
             nullable = false,
             length = 100
     )
-    private String name;
+    private String deptname;
 
     // 부서 내 직원 수
     @Column(
-            name = "employee_count",
+            name = "emp_count",
             nullable = false
     )
-    private int employeeCount = 0;
+    private int empCount = 0;
 
     @Enumerated(EnumType.STRING)
     @Column(
@@ -40,9 +40,9 @@ public class Department {
     private Role role;
 
     @OneToMany(
-            mappedBy = "department",
+            mappedBy = "dept",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Employee> chatLogs = new ArrayList<>();
+    private List<Emp> chatLogs = new ArrayList<>();
 }
