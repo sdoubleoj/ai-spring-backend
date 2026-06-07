@@ -37,6 +37,16 @@ public class Dept {
     )
     private int empCount = 0;
 
+    public void increaseEmpCount() {
+        this.empCount++;
+    }
+
+    public void decreaseEmpCount() {
+        if (this.empCount > 0) {
+            this.empCount--;
+        }
+    }
+
     // 직원 목록
     @OneToMany(
             mappedBy = "dept"
