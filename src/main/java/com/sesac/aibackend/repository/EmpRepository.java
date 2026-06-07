@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface EmpRepository extends JpaRepository<Emp, Long> {
-    // 부서 소속 직원 조회
+    // 부서 소속 직원들 조회
     List<Emp> findByDeptIdOrderByHireAtDesc(Long deptId);
 
     // 부서 정보까지 함께 조회
